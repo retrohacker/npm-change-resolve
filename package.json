@@ -7,7 +7,7 @@
     "request": "^2.88.0"
   },
   "name": "npm-change-resolve",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Resolve follow's change.id to a manifest",
   "main": "index.js",
   "repository": "github.com/retrohacker/npm-change-resolve",
