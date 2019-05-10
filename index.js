@@ -11,7 +11,7 @@ const normalize = require('normalize-registry-metadata')
 const defaultConfig = {
   'ua': 'npm-registry-follower',
   'protocol': 'https:',
-  'registry': 'replicate.npmjs.com/registry'
+  'registry': 'registry.npmjs.com'
 }
 
 module.exports = class registry {
