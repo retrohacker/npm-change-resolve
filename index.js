@@ -4,7 +4,7 @@ Code licensed under the BSD License.
 See LICENSE file.
 */
 
-const request = require('request')
+const got = require('got')
 const url = require('url')
 const normalize = require('normalize-registry-metadata')
 
@@ -45,14 +45,16 @@ module.exports = class registry {
         'user-agent': self.config.ua
       }
     }
-    request.get(opt, function (err, res, json) {
-      if (err) {
-        console.error(err)
-        return callback(err, json)
-      }
-
-      callback(null, json)
-    })
+    return got
+      .get(opt, { json: true })
+      .then((resp) => {
+        callback(null, resp.body)
+      })
+      .catch((e) => {
+        if (e) {
+          return callback(e)
+        }
+      })
   }
   splitVersions (json) {
     const parts = []
